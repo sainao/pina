@@ -8,4 +8,7 @@ class Product(models.Model):
     content = models.TextField(max_length=300)
     price = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
-    pdated_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.title
