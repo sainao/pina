@@ -1,0 +1,16 @@
+<html>
+  <head>
+
+    <title>商品一覧</title>
+
+  </head>
+  
+  <body>
+
+    <h1>商品の一覧</h1>
+    {% for product in products %}
+    <a href="{% url 'pina-product-detail' product.id %}">{{ product.title }}</a>
+    {{ product.price }}
+    {% endfor %}
+  </body>
+</html>
