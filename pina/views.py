@@ -12,4 +12,4 @@ def index(request):
 
 def product_list(request):
     products = Product.objects.all()
-    return render(request, 'pina/product_list.html', {'products': products})
+    return render(request, 'pina/product_list.html', {"products": products})
