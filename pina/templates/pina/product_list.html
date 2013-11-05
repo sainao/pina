@@ -10,8 +10,8 @@
     <h1>商品の一覧</h1>
 
     {% for product in products %}
-      <a href="{% url 'pina-product-detail' product.id %}">{{ product.title }}</a>
-      {{ product.price }}
+      <a href="{% url 'pina-product-detail' product.id %}">{{ product.title }}</a><br>
+      {{ product.price }}<br>
     {% endfor %}
   </body>
 </html>
