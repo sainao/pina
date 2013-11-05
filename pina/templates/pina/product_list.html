@@ -11,7 +11,7 @@
 
     {% for product in products %}
       <a href="{% url 'pina-product-detail' product.id %}">{{ product.title }}</a><br>
-      {{ product.price }}<br>
+      {{ product.price }} 円<br>
     {% endfor %}
   </body>
 </html>
