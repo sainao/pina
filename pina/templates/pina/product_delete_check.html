@@ -4,15 +4,16 @@
   </head>
 
   <body>
-<div>
+    <div>
     <form method="post" action="delete">
     {% csrf_token %}
     <p>削除します。よろしいですか？</p>
 
     <input type="submit" value="はい" />
     <input type="button" value="いいえ" onclick="history.back()" />
-   </form><br />
-</div>
-    <a href="/pina/products/">商品一覧へ</a>
+    </form><br />
+    </div>
+
+    <input type="button" value="トップページへ" onclick="location.href='http://127.0.0.1:8000/'">
   </body>
 </html>

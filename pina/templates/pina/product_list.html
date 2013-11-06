@@ -12,11 +12,14 @@
     {% for product in products %}
       <a href="{% url 'pina-product-detail' product.id %}">{{ product.title }}</a><br>
       {{ product.price }} 円<br>
+
     {% endfor %}
 
-<form>
-<input type="button" value="トップページへ" onclick="location.href='http://127.0.0.1:8000/'">
-</form>
+    <a href="products/register">追加</a>
+
+  <form>
+    <input type="button" value="トップページへ" onclick="location.href='http://127.0.0.1:8000/'">
+  </form>
 
   </body>
 </html>

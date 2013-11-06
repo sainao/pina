@@ -33,3 +33,7 @@ def product_delete(request, product_id):
     return render(
         request, 'pina/product_delete.html',
         {'delete_product': delete_product})
+
+
+def product_register(request):
+    return render(request, 'pina/product_register.html')
