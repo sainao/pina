@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>削除</title>
+  </head>
+
+  <body>
+<div>
+    <form method="post" action="delete">
+    {% csrf_token %}
+    <p>削除します。よろしいですか？</p>
+
+    <input type="submit" value="はい" />
+    <input type="button" value="いいえ" onclick="history.back()" />
+   </form><br />
+</div>
+    <a href="/pina/products/">商品一覧へ</a>
+  </body>
+</html>
