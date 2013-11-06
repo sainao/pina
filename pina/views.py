@@ -19,5 +19,21 @@ def product_detail(request, product_id):
     product = Product.objects.get(pk=product_id)
     return render(request, 'pina/product_detail.html', {'product': product})
 
+
+def product_delete_check(request, product_id):
+    check_product = Product.objects.get(pk=product_id)
+    return render(
+        request, 'pina/product_delete_check.html',
+        {'check_product': check_product})
+
+
+def product_delete(request, product_id):
+    product = Product.objects.get(pk=product_id)
+    delete_product = product.delete()
+    return render(
+        request, 'pina/product_delete.html',
+        {'delete_product': delete_product})
+
+
 def product_register(request):
     return render(request, 'pina/product_register.html')
