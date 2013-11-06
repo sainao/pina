@@ -26,4 +26,8 @@ urlpatterns = patterns(
 
     url(r'^products/register$', 'pina.views.product_register',
         name='pina-product-register'),
+
+    url(r'^products/register/check$', 'pina.views.product_register_check',
+        name='pina-product-register-check'),
+
 )
