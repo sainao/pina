@@ -1,18 +1,15 @@
 <html>
   <head>
-    <title>削除</title>
+    <title>商品削除</title>
   </head>
 
   <body>
 <div>
-    <form method="post" action="delete">
-    {% csrf_token %}
-    <p>削除します。よろしいですか？</p>
+    <p>商品を削除します。よろしいですか？</p>
 
-    <input type="submit" value="はい" />
-    <input type="button" value="いいえ" onclick="history.back()" />
-   </form><br />
+    <a href="{% url 'pina-product-delete' product.id %}">はい</a>
+    <a href="{% url 'pina-product-list' %}">いいえ</a>
+
 </div>
-    <a href="/pina/products/">商品一覧へ</a>
   </body>
 </html>
