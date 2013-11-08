@@ -4,26 +4,12 @@
   </head>
 
   <body>
-<<<<<<< HEAD
     <div>
-    <form method="post" action="delete">
-    {% csrf_token %}
-    <p>削除します。よろしいですか？</p>
-
-    <input type="submit" value="はい" />
-    <input type="button" value="いいえ" onclick="history.back()" />
-    </form><br />
-    </div>
-
-    <input type="button" value="トップページへ" onclick="location.href='http://127.0.0.1:8000/'">
-=======
-<div>
     <p>商品を削除します。よろしいですか？</p>
 
     <a href="{% url 'pina-product-delete' product.id %}">はい</a>
     <a href="{% url 'pina-product-list' %}">いいえ</a>
 
 </div>
->>>>>>> feature/add-product-delete-view
   </body>
 </html>
