@@ -36,4 +36,10 @@ def product_delete(request, product_id):
 
 # def product_register(request):
 #    return render(request, 'pina/product_register.html')
-#        request, 'pina/product_delete.html')
+
+
+# def product_register_check(request):
+#    product = Product.objects.get(pk=product.id)
+#    create_product = product.create()
+    
+#    return render(request, 'pina/product_register_check.html')

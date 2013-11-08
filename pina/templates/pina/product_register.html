@@ -10,8 +10,8 @@
     {% endfor %}
   {% endif %}
 
-<div class="validation">
-  <form action="." method="post" accept-charset="utf-8">
+<div>
+  <form action="product/register/check" method="post" accept-charset="utf-8">
     <label for="id_title">商品名</label>{{ form.title }}
     {% if form.title.errors %} <p><error> {{ form.title.errors|join:", "}}</error></p>{% endif %}<br/><br/>
 
