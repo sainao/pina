@@ -15,6 +15,13 @@ def product_list(request):
     return render(request, 'pina/product_list.html', {'products': products})
 
 
+def product_price_filter1(request):
+    filter1 = Product.objects.filter(price__gte=3000)
+    return render(
+        request, 'pina/product_price_filter1.html',
+        {'filter1': filter1})
+
+
 def product_detail(request, product_id):
     product = Product.objects.get(pk=product_id)
     return render(request, 'pina/product_detail.html', {'product': product})
@@ -34,12 +41,14 @@ def product_delete(request, product_id):
         request, 'pina/product_delete.html')
 
 
-# def product_register(request):
-#    return render(request, 'pina/product_register.html')
+# def product_entry(request):
+#    product = Product.objects.get(pk=product_id)
+#    return render(request, 'pina/product_entry.html', {'product': product})
 
 
-# def product_register_check(request):
-#    product = Product.objects.get(pk=product.id)
-#    create_product = product.create()
-    
-#    return render(request, 'pina/product_register_check.html')
+# def product_entry_confirm(request, prduct_id):
+#    new_product = Product.objects.get(pk=product_id)
+#    new_product.save()
+#    return render(request,
+#        'pina/product_entry_confirm.html',
+#        {'new_product': new_product})
