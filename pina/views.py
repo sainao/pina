@@ -22,6 +22,13 @@ def product_price_filter1(request):
         {'filter1': filter1})
 
 
+def product_price_filter2(request):
+    filter2 = Product.objects.filter(price__lt=3000)
+    return render(
+        request, 'pina/product_price_filter2.html',
+        {'filter2': filter2})
+
+
 def product_detail(request, product_id):
     product = Product.objects.get(pk=product_id)
     return render(request, 'pina/product_detail.html', {'product': product})

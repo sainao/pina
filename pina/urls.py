@@ -16,6 +16,9 @@ urlpatterns = patterns(
     url(r'^products/filter1$', 'pina.views.product_price_filter1',
         name='pina-product-price-filter1'),
 
+    url(r'^products/filter2$', 'pina.views.product_price_filter2',
+        name='pina-product-price-filter2'),
+
     url(r'^products/(?P<product_id>\d+)/$', 'pina.views.product_detail',
         name='pina-product-detail'),
 
