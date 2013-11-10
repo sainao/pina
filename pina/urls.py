@@ -13,12 +13,6 @@ urlpatterns = patterns(
     url(r'^products$', 'pina.views.product_list',
         name='pina-product-list'),
 
-    url(r'^products/filter1$', 'pina.views.product_price_filter1',
-        name='pina-product-price-filter1'),
-
-    url(r'^products/filter2$', 'pina.views.product_price_filter2',
-        name='pina-product-price-filter2'),
-
     url(r'^products/(?P<product_id>\d+)/$', 'pina.views.product_detail',
         name='pina-product-detail'),
 
@@ -29,11 +23,5 @@ urlpatterns = patterns(
     url(r'^products/(?P<product_id>\d+)/delete$',
         'pina.views.product_delete',
         name='pina-product-delete'),
-
-    # url(r'^products/register$', 'pina.views.product_register',
-    #    name='pina-product-register'),
-
-    # url(r'^products/register/check$', 'pina.views.product_register_check',
-    #    name='pina-product-register-check'),
 
 )

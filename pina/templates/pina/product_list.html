@@ -9,14 +9,21 @@
 
     <h1>商品の一覧</h1>
 
-    {% for product in products %}
+
+    <p>３０００円以上</P>
+    {% for product in filter1 %}
+      <a href="{% url 'pina-product-detail' product.id %}">{{ product.title }}</a><br>
+      {{ product.price }} 円<br>
+    {% endfor %}
+
+     <p>３０００円未満</P>
+
+    {% for product in filter2 %}
       <a href="{% url 'pina-product-detail' product.id %}">{{ product.title }}</a><br>
       {{ product.price }} 円<br>
 
     {% endfor %}
 
-    <a href="{% url 'pina-product-price-filter1' %}">3000円以上</a><br>
-    <a href="{% url 'pina-product-price-filter2' %}">3000円未満</a><br>
     <a href="products/register">追加</a>
 
   <a href="{% url 'pina-index' %}">TOPへ</a>

@@ -11,22 +11,11 @@ def index(request):
 
 
 def product_list(request):
-    products = Product.objects.all()
-    return render(request, 'pina/product_list.html', {'products': products})
-
-
-def product_price_filter1(request):
     filter1 = Product.objects.filter(price__gte=3000)
-    return render(
-        request, 'pina/product_price_filter1.html',
-        {'filter1': filter1})
-
-
-def product_price_filter2(request):
     filter2 = Product.objects.filter(price__lt=3000)
     return render(
-        request, 'pina/product_price_filter2.html',
-        {'filter2': filter2})
+        request, 'pina/product_list.html',
+        {'filter1': filter1, 'filter2': filter2})
 
 
 def product_detail(request, product_id):
