@@ -35,16 +35,3 @@ def product_delete(request, product_id):
     product.delete()
     return render(
         request, 'pina/product_delete.html')
-
-
-# def product_entry(request):
-#    product = Product.objects.get(pk=product_id)
-#    return render(request, 'pina/product_entry.html', {'product': product})
-
-
-# def product_entry_confirm(request, prduct_id):
-#    new_product = Product.objects.get(pk=product_id)
-#    new_product.save()
-#    return render(request,
-#        'pina/product_entry_confirm.html',
-#        {'new_product': new_product})

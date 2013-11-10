@@ -1,16 +1,14 @@
 <html>
   <head>
-
     <title>商品一覧</title>
-
   </head>
   
   <body>
 
     <h1>商品の一覧</h1>
 
-
     <p>３０００円以上</P>
+
     {% for product in filter1 %}
       <a href="{% url 'pina-product-detail' product.id %}">{{ product.title }}</a><br>
       {{ product.price }} 円<br>
@@ -21,11 +19,9 @@
     {% for product in filter2 %}
       <a href="{% url 'pina-product-detail' product.id %}">{{ product.title }}</a><br>
       {{ product.price }} 円<br>
-
     {% endfor %}
 
     <a href="products/register">追加</a>
-
-  <a href="{% url 'pina-index' %}">TOPへ</a>
+    <a href="{% url 'pina-index' %}">TOPへ</a>
   </body>
 </html>
