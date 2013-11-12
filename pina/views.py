@@ -11,11 +11,11 @@ def index(request):
 
 
 def product_list(request):
-    filter1 = Product.objects.filter(price__gte=3000)
-    filter2 = Product.objects.filter(price__lt=3000)
+    products_of_lower = Product.objects.filter(price__lt=3000)
+    products_higher = Product.objects.filter(price__gte=3000)
     return render(
         request, 'pina/product_list.html',
-        {'filter1': filter1, 'filter2': filter2})
+        {'products_of_lower': products_of_lower, 'products_higher': products_higher})
 
 
 def product_detail(request, product_id):
