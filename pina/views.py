@@ -1,8 +1,6 @@
 # coding: utf8
 
 from django.shortcuts import render
-<<<<<<< HEAD
-from django.forms import ModelForm
 # from django.template import Context, loader
 from django.http import Http404
 
