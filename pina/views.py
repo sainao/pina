@@ -1,6 +1,7 @@
 # coding: utf8
 
 from django.shortcuts import render
+from pina.forms import ProductForm
 # from django.template import Context, loader
 from django.http import Http404
 
@@ -46,3 +47,9 @@ def product_delete(request, product_id):
         raise Http404
     return render(
         request, 'pina/product_delete.html')
+
+
+def product_entry(request):
+    form = ProductForm()
+    return render(request, 'pina/product_entry.html',
+    {'form': form})
