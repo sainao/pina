@@ -23,5 +23,4 @@ urlpatterns = patterns(
     url(r'^products/(?P<product_id>\d+)/delete$',
         'pina.views.product_delete',
         name='pina-product-delete'),
-
 )
