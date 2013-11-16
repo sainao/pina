@@ -48,8 +48,26 @@ def product_delete(request, product_id):
     return render(
         request, 'pina/product_delete.html')
 
-
+    
 def product_entry(request):
     form = ProductForm()
     return render(request, 'pina/product_entry.html',
     {'form': form})
+
+def product_entry_confirm(request):
+    if request.method == 'POST': # フォームが提出された
+        form = ProductForm(request.POST) # POST データの束縛フォーム
+        # is_valid()はフォームに入力されたデータが正しいものかを判断
+        if form.is_valid(): # バリデーションを通った
+                # form.cleaned_data を処理
+                # ...
+            return HttpResponseRedirect('completion') # POST 後のリダイレクト
+    else:
+        form = ProductForm() # 非束縛フォーム
+    
+    return render(request, 'pina/product_entry.html', {'form': form})
+
+def product_entry_completion(request):
+    return render(request, 'pina/product_entry_completion.html')
+    
+  

@@ -6,14 +6,17 @@
 <body> 
 <h1>商品登録</h1> 
 
-<form action="{% url 'pina-product-entry-confirm' %}" method="POST">
+<form action="{% url 'pina-product-entry-completion' %}" method="POST">
 {% csrf_token %}
 
-商品名　{{ form.title }}</br>
-商品説明{{ form.content }}</br>
-価格　　{{ form.price }}</br>
+商品名</br> 
+{{ form.title }}</br>
+商品説明</br>
+{{ form.content }}></br>
+価格</br>
+{{ form.price }}</br>
 
-<input type="submit" value="Submit" />
+<input type="submit" value="登録" />
 </form>
 </body> 
 </html>
