@@ -18,7 +18,7 @@
       {{ product.price }} 円<br>
     {% endfor %}
 
-    <a href="products/register">追加</a>
+    <a href="{% url 'pina-product-entry' %}">追加</a>
     <a href="{% url 'pina-index' %}">TOPへ</a>
   </body>
 </html>
