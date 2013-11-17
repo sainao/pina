@@ -4,6 +4,7 @@ from django.shortcuts import render
 from pina.forms import ProductForm
 # from django.template import Context, loader
 from django.http import Http404
+from django.http import HttpResponseRedirect
 
 from .models import Product
 
@@ -56,11 +57,18 @@ def product_entry(request):
 
 def product_entry_confirm(request):
     if request.method == 'POST': # フォームが提出された
-        form = ProductForm(request.POST) # POST データの束縛フォーム
-        # is_valid()はフォームに入力されたデータが正しいものかを判断
-        if form.is_valid(): # バリデーションを通った
-                # form.cleaned_data を処理
-                # ...
+        form = ProductForm(request.POST) # POST データの束縛フォームの生成
+        if form.is_valid(): # バリデーション（入力検証）を通った
+            t = form.cleaned_data['title']
+            c = form.cleaned_data['content']
+            p = form.cleaned_data['price']
+
+            from datetime import datetime
+            from .models import Product
+            # created_at = models.DateTimeField(auto_now_add=True)
+            # updated_at = models.DateTimeField(auto_now=True)
+            p = Product(title=t, content=c, price=p, created_at="", updated_at="")
+            p.save()
             return HttpResponseRedirect('completion') # POST 後のリダイレクト
     else:
         form = ProductForm() # 非束縛フォーム
