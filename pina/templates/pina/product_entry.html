@@ -1,26 +1,24 @@
 <html> 
-<head> 
-<title>商品登録</title> 
-</head> 
-
-<body> 
-  <h1>商品登録</h1> 
+  <head> 
+    <title>商品登録</title> 
+  </head> 
+  <body> 
+    <h1>商品登録</h1> 
   
-  <form action="{% url 'pina-product-entry-confirm' %}" method="POST">
-  {% csrf_token %}
+    <form action="{% url 'pina-product-entry-confirm' %}" method="POST">
+    {% csrf_token %}
+    
+    <tr><th><label for="id_title">商品名:</label></th>
+    <td><input id="id_title" maxlength="100" name="title" type="text" /></td></tr></br>
+    
+    <tr><th><label for="id_content">説明:</label></th>
+    <td><textarea id="id_content" maxlength="300" name="content" type="text" /></textarea></td></tr></br>
+    
+    <tr><th><label for="id_price">価格:</label></th><td>
+    <input id="id_price" name="price" type="number" /></td></tr></br>
   
-  <tr><th><label for="id_title">商品名:</label></th>
-  <td><input id="id_title" maxlength="100" name="title" type="text" /></td></tr></br>
-  
-  <tr><th><label for="id_content">説明:</label></th>
-  <td><textarea id="id_content" maxlength="300" name="content" type="text" /></textarea></td></tr></br>
-  
-  <tr><th><label for="id_price">価格:</label></th><td>
-  <input id="id_price" name="price" type="number" /></td></tr></br>
-  
-  <input type="submit" value="登録" /></br>
-  <a href="{% url 'pina-index' %}">TOPへ</a>
- 
-</form>
-</body> 
+    <input type="submit" value="登録" /></br>
+    <a href="{% url 'pina-index' %}">TOPへ</a>
+    </form>
+  </body> 
 </html>

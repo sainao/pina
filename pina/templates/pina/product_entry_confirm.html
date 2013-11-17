@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>商品登録確認</title>
+  </head>
+  <body>
+ 
+    <h1>商品登録</h1>
+
+    <form action="{% url 'pina-product-entry-confirm' %}" method="POST">
+    {% csrf_token %}
+    
+    <font size="7" color="#FF0000">未記入があります。</font></br>
+    </br>
+    
+    商品名　{{ form.title }}</br>
+    商品説明{{ form.content }}</br>
+    価格　　{{ form.price }}</br>
+    
+    <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
+
