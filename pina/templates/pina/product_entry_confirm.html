@@ -12,9 +12,9 @@
     <font size="4" color="#FF0000">未記入があります。</font></br>
     </br>
     
-    商品名　{{ form.title }}</br>
-    商品説明{{ form.content }}</br>
-    価格　　{{ form.price }}</br>
+    {{ form.title.label_tag }}　{{ form.title }}</br>
+    説明:　　{{ form.content }}</br>
+    価格:　　{{ form.price }}</br>
     
     <input type="submit" value="Submit" />
     </form>
