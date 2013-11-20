@@ -1,19 +1,29 @@
 <html> 
-  <head> 
+  <head>
     <title>商品登録</title> 
   </head> 
   <body> 
-    <h1>商品登録</h1> 
-  
+
+    <h1>商品登録</h1>      
+
     <form action="{% url 'pina-product-entry-confirm' %}" method="POST">
     {% csrf_token %}
     
-    {{ form.title.label_tag }}　{{ form.title }}</br>
-    商品:　　{{ form.content }}</br>
-    価格:　　{{ form.price }}</br> 
+    <tr>
+      <th>{{ form.title.label_tag }}　</th>
+      <td>{{ form.title }}</td><br />
+    </tr>
+    <tr>
+      <th>説明:　　</th>
+      <td>{{ form.content }}</td><br />
+    </tr>
+    <tr>
+      <th>価格:　　</th>
+      <td>{{ form.price }}</td><br /> 
+    </tr>
  
-    <input type="submit" value="登録" /></br>
-    <a href="{% url 'pina-index' %}">TOPへ</a>
+    <p><input type="submit" value="登録" /></p>
+    <p><a href="{% url 'pina-index' %}">TOPへ</a></p>
     </form>
   </body> 
 </html>

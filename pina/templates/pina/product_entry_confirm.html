@@ -9,14 +9,22 @@
     <form action="{% url 'pina-product-entry-confirm' %}" method="POST">
     {% csrf_token %}
     
-    <font size="4" color="#FF0000">未記入があります。</font></br>
-    </br>
+    <p class="alert">未記入があります。</p>
+
+    <tr>
+      <th>{{ form.title.label_tag }}　</th>
+      <td>{{ form.title }}</td></br>
+    </tr>
+    <tr>
+      <th>説明:　　</th>
+      <td>{{ form.content }}</td></br>
+    </tr>
+    <tr>
+      <th>価格:　　</th>
+      <td>{{ form.price }}</td></br>
+    </tr>
     
-    {{ form.title.label_tag }}　{{ form.title }}</br>
-    説明:　　{{ form.content }}</br>
-    価格:　　{{ form.price }}</br>
-    
-    <input type="submit" value="Submit" />
+    <p><input type="submit" value="商品登録" /></p>
     </form>
   </body>
 </html>
