@@ -63,7 +63,7 @@ def product_entry(request):
                 created_at="", updated_at="")
             product.save()
             # POST 後のリダイレクト
-            return redirect('pina-product-list')
+            return redirect('pina-product-entry-completion')
     else:
         # 非束縛フォーム生成（データが結びついてないフォーム)
         form = ProductForm()
