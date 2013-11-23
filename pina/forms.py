@@ -14,4 +14,3 @@ class ProductForm(ModelForm):
     class Meta:
         model = Product
         fields = ('title', 'content', 'price')
-

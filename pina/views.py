@@ -2,7 +2,6 @@
 
 from django.shortcuts import render, redirect
 from django.http import Http404
-from django.forms import ModelForm
 
 from .forms import ProductForm
 from .models import Product
