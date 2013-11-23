@@ -1,10 +1,9 @@
 # coding: utf8
 
-from django.shortcuts import render
-from pina.forms import ProductForm
+from django.shortcuts import render, redirect
 from django.http import Http404
-from django.shortcuts import redirect
 
+from .forms import ProductForm
 from .models import Product
 
 
@@ -50,31 +49,25 @@ def product_delete(request, product_id):
 
 
 def product_entry(request):
-    form = ProductForm()
-    return render(
-        request, 'pina/product_entry.html',
-        {'form': form})
-
-
-def product_entry_confirm(request):
-    if request.method == 'POST':  # フォームが提出された
-        form = ProductForm(request.POST)  # POST データの束縛フォームの生成
-        if form.is_valid():  # バリデーション（入力検証）を通った
+    if request.method == 'POST':
+        # POST データの束縛フォームの生成
+        form = ProductForm(request.POST)
+        # バリデーション（入力検証）通過
+        if form.is_valid():
             title = form.cleaned_data['title']
             content = form.cleaned_data['content']
             price = form.cleaned_data['price']
 
-            p = Product(
+            product = Product(
                 title=title, content=content, price=price,
                 created_at="", updated_at="")
-            p.save()
-            # 入力検証が済み、作成日時や更新日時を保存し、完了ページへ移動する
+            product.save()
             # POST 後のリダイレクト
-            return redirect('pina.views.product_entry_completion')
+            return redirect('pina-product-list')
     else:
-        form = ProductForm()  # 非束縛フォーム
-    # 未記入がある際に入力された中途半端なデータを~confirm.htmlへ渡す
-    return render(request, 'pina/product_entry_confirm.html', {'form': form})
+        # 非束縛フォーム生成（データが結びついてないフォーム)
+        form = ProductForm()
+    return render(request, 'pina/product_entry.html', {'form': form})
 
 
 def product_entry_completion(request):
