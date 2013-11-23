@@ -1,10 +1,9 @@
+<!doctype html>
 <html>
   <head>
-
+    <meta charset="utf-8">
     <title>商品詳細</title>
-
   </head>
-  
   <body>
 
     <h1>商品の詳細</h1>
@@ -45,8 +44,7 @@
       </table></td></tr>
     </table>
 
-    <a href="{% url 'pina-product-delete-check' product.id %}">削除</a>
-    <a href="{% url 'pina-index' %}">TOPへ</a>
+    <p><a href="{% url 'pina-product-delete-check' product.id %}">削除</a></p> 
+    <p><a href="{% url 'pina-index' %}">TOPへ</a></p>
   </body>
 </html>
-
