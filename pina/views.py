@@ -54,18 +54,10 @@ def product_entry(request):
         form = ProductForm(request.POST)
         # バリデーション（入力検証）通過
         if form.is_valid():
-            title = form.cleaned_data['title']
-            content = form.cleaned_data['content']
-            price = form.cleaned_data['price']
-
-            product = Product(
-                title=title, content=content, price=price,
-                created_at="", updated_at="")
-            product.save()
-            # POST 後のリダイレクト
+            product = form.save()
             return redirect('pina-product-entry-completion')
     else:
-        # 非束縛フォーム生成（データが結びついてないフォーム)
+        # データが結びついてないフォーム
         form = ProductForm()
     return render(request, 'pina/product_entry.html', {'form': form})
 
