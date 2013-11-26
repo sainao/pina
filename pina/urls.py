@@ -1,8 +1,9 @@
 # coding: utf8
 
 from django.conf.urls import patterns, url
-
 from django.contrib import admin
+
+from pina.forms import ProductForm
 admin.autodiscover()
 
 
@@ -23,4 +24,11 @@ urlpatterns = patterns(
     url(r'^products/(?P<product_id>\d+)/delete$',
         'pina.views.product_delete',
         name='pina-product-delete'),
+
+    url(r'^products/entry$', 'pina.views.product_entry',
+        name='pina-product-entry'),
+
+    url(r'^products/entry/completion$', 'pina.views.product_entry_completion',
+        name='pina-product-entry-completion'),
+
 )

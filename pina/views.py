@@ -1,9 +1,9 @@
 # coding: utf8
 
-from django.shortcuts import render
-# from django.template import Context, loader
+from django.shortcuts import render, redirect
 from django.http import Http404
 
+from .forms import ProductForm
 from .models import Product
 
 
@@ -46,3 +46,21 @@ def product_delete(request, product_id):
         raise Http404
     return render(
         request, 'pina/product_delete.html')
+
+
+def product_entry(request):
+    if request.method == 'POST':
+        # POST データの束縛フォームの生成
+        form = ProductForm(request.POST)
+        # バリデーション（入力検証）通過
+        if form.is_valid():
+            form.save()
+            return redirect('pina-product-list')
+    else:
+        # データが結びついてないフォーム
+        form = ProductForm()
+    return render(request, 'pina/product_entry.html', {'form': form})
+
+
+def product_entry_completion(request):
+    return render(request, 'pina/product_entry_completion.html')

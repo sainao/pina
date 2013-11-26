@@ -1,15 +1,15 @@
+<!doctype html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>商品削除</title>
   </head>
-
   <body>
     <div>
     <p>商品を削除します。よろしいですか？</p>
 
-    <a href="{% url 'pina-product-delete' product.id %}">はい</a>
-    <a href="{% url 'pina-product-list' %}">いいえ</a>
-
-</div>
+    <p><a href="{% url 'pina-product-delete' product.id %}">はい</a></p>
+    <p><a href="{% url 'pina-product-list' %}">いいえ</a></p>
+    </div>
   </body>
 </html>
