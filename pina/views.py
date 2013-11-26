@@ -54,8 +54,8 @@ def product_entry(request):
         form = ProductForm(request.POST)
         # バリデーション（入力検証）通過
         if form.is_valid():
-            product = form.save()
-            return redirect('pina-product-entry-completion')
+            form.save()
+            return redirect('pina-product-list')
     else:
         # データが結びついてないフォーム
         form = ProductForm()
