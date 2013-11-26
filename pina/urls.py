@@ -3,7 +3,6 @@
 from django.conf.urls import patterns, url
 from django.contrib import admin
 
-from pina.forms import ProductForm
 admin.autodiscover()
 
 
@@ -16,6 +15,9 @@ urlpatterns = patterns(
 
     url(r'^products/(?P<product_id>\d+)/$', 'pina.views.product_detail',
         name='pina-product-detail'),
+
+    url(r'^products/(?P<product_id>\d+)/edit$', 'pina.views.product_edit',
+        name='pina-product-edit'),
 
     url(r'^products/(?P<product_id>\d+)/check$',
         'pina.views.product_delete_check',
