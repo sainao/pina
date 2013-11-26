@@ -28,6 +28,18 @@ def product_detail(request, product_id):
     return render(request, 'pina/product_detail.html', {'product': product})
 
 
+def product_edit(request, product_id):
+    product = Product.objects.get(pk=product_id)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, instance=product)
+        if form.is_valid():
+            product = form.save()
+            return redirect('pina-product-detail', product.id)
+    else:
+        form = ProductForm(instance=product)
+    return render(request, 'pina/product_edit.html', {'form': form, 'product': product})
+
+
 def product_delete_check(request, product_id):
     try:
         product = Product.objects.get(pk=product_id)
@@ -50,22 +62,11 @@ def product_delete(request, product_id):
 
 def product_entry(request):
     if request.method == 'POST':
-        # POST データの束縛フォームの生成
         form = ProductForm(request.POST)
-        # バリデーション（入力検証）通過
         if form.is_valid():
-            title = form.cleaned_data['title']
-            content = form.cleaned_data['content']
-            price = form.cleaned_data['price']
-
-            product = Product(
-                title=title, content=content, price=price,
-                created_at="", updated_at="")
-            product.save()
-            # POST 後のリダイレクト
+            product = form.save()
             return redirect('pina-product-entry-completion')
     else:
-        # 非束縛フォーム生成（データが結びついてないフォーム)
         form = ProductForm()
     return render(request, 'pina/product_entry.html', {'form': form})
 

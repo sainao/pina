@@ -10,7 +10,6 @@
 
     <form action="{% url 'pina-product-entry' %}" method="POST">
     {% csrf_token %}
-    
     <tr>
       <th>{{ form.title.label_tag }}　</th>
       <td>{{ form.title }}</td><br />
@@ -23,7 +22,6 @@
       <th>{{ form.price.label_tag }}　</th>
       <td>{{ form.price }}</td><br /> 
     </tr>
- 
     <p><input type="submit" value="登録" /></p>
     <p><a href="{% url 'pina-index' %}">TOPへ</a></p>
     </form>
