@@ -28,6 +28,20 @@ def product_detail(request, product_id):
     return render(request, 'pina/product_detail.html', {'product': product})
 
 
+def product_edit(request, product_id):
+    product = Product.objects.get(pk=product_id)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, instance=product)
+        if form.is_valid():
+            product = form.save()
+            return redirect('pina-product-detail', product.id)
+    else:
+        form = ProductForm(instance=product)
+    return render(
+        request, 'pina/product_edit.html',
+        {'form': form, 'product': product})
+
+
 def product_delete_check(request, product_id):
     try:
         product = Product.objects.get(pk=product_id)
