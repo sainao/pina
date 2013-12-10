@@ -1,9 +1,11 @@
 # coding=utf8
 
 from django.test import TestCase, Client
-from django.db import models
 
 from .models import Product
+
+
+from django.db import models
 
 
 class Product(models.Model):
@@ -19,9 +21,11 @@ class Product(models.Model):
 
 class PinaTest(TestCase):
 
+    # setUp は各テストメソッドの実行前に必ず実行されるメソッド
     def setUp(self):
         self.client = Client()
 
+    # テストメソッド名は必ず test で始める
     def test_index(self):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
@@ -44,3 +48,60 @@ class PinaTest(TestCase):
 
         response = self.client.post('/products/{0}/'.format(product.id))
         self.assertEqual(response.status_code, 404)
+
+
+    def test_product_edit(self):
+        product = Product(title='ナオコ', content=u'サイトー', price=5000)
+        product.save()
+
+        response = self.client.get('/products/{0}/edit'.format(product.id))
+        self.assertEqual(response.status_code, 200)
+
+        product.delete()
+
+        response = self.client.get('/products/{0}/edit'.format(product.id))
+        self.assertEqual(response.status_code, 404)
+
+        response = self.client.post('/products/{0}/edit'.format(product.id))
+        self.assertEqual(response.status_code, 404)
+
+
+    def test_product_delete_check(self):
+        product = Product(title='ナオコ', content=u'サイトー', price=5000)
+        product.save()
+
+        response = self.client.get('/products/{0}/check'.format(product.id))
+        self.assertEqual(response.status_code, 200)
+
+        product.delete()
+
+        response = self.client.get('/products/{0}/check'.format(product.id))
+        self.assertEqual(response.status_code, 404)
+
+        response = self.client.post('/products/{0}/check'.format(product.id))
+        self.assertEqual(response.status_code, 404)
+
+
+    def test_product_delete(self):
+        product = Product(title='ナオコ', content=u'サイトー', price=5000)
+        product.save()
+
+        response = self.client.get('/products/{0}/delete'.format(product.id))
+        self.assertEqual(response.status_code, 200)
+
+        product.delete()
+
+        response = self.client.get('/products/{0}/delete'.format(product.id))
+        self.assertEqual(response.status_code, 404)
+
+        response = self.client.post('/products/{0}/delete'.format(product.id))
+        self.assertEqual(response.status_code, 404)
+
+
+    def test_product_entry(self):
+        response = self.client.get('/products/entry')
+        self.assertEqual(response.status_code, 200)
+
+        response = self.client.post('/products/entry')
+        self.assertEqual(response.status_code, 200)
+
