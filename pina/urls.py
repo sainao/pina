@@ -29,8 +29,4 @@ urlpatterns = patterns(
 
     url(r'^products/entry$', 'pina.views.product_entry',
         name='pina-product-entry'),
-
-    url(r'^products/entry/completion$', 'pina.views.product_entry_completion',
-        name='pina-product-entry-completion'),
-
 )

@@ -76,7 +76,3 @@ def product_entry(request):
         # データが結びついてないフォーム
         form = ProductForm()
     return render(request, 'pina/product_entry.html', {'form': form})
-
-
-def product_entry_completion(request):
-    return render(request, 'pina/product_entry_completion.html')
