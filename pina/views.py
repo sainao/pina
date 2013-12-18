@@ -48,20 +48,17 @@ def product_edit(request, product_id):
 def product_delete_check(request, product_id):
     try:
         product = Product.objects.get(pk=product_id)
+        if request.method == 'POST':
+            product.delete()
+            return redirect('pina-product-delete')
     except Product.DoesNotExist:
         raise Http404
     return render(
         request, 'pina/product_delete_check.html', {'product': product})
 
 
-def product_delete(request, product_id):
-    try:
-        product = Product.objects.get(pk=product_id)
-        product.delete()
-    except Product.DoesNotExist:
-        raise Http404
-    return render(
-        request, 'pina/product_delete.html')
+def product_delete(request):
+    return render(request, 'pina/product_delete.html')
 
 
 def product_entry(request):
