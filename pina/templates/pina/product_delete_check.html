@@ -6,10 +6,51 @@
   </head>
   <body>
     <div>
-    <p>商品を削除します。よろしいですか？</p>
 
-    <p><a href="{% url 'pina-product-delete' product.id %}">はい</a></p>
-    <p><a href="{% url 'pina-product-list' %}">いいえ</a></p>
-    </div>
+    <h1>商品の詳細</h1>
+
+    <form action="{% url 'pina-product-delete-check' product.id %}" method="POST">
+    {% csrf_token %}
+
+    <table width="500" style="border-color:#95d493; border-width:1px; border-style:solid;">
+    <tr>
+    <td align="center">
+    <table width="100%" style="border-color:#95d493; border-width:1px; border-style:dashed;">
+    <tr><td align="center">
+
+      <tr><th>登録項目</th><th>登録内容</th></tr>
+  
+      <tr><th>作品名</th>
+      <td>{{ product.title }}</td></tr>
+  
+      <tr><th>作品画像</th>
+      <td>    ---</td></tr>
+  
+      <tr><th>作品説明文</th>
+      <td>{{ product.content }}</td></tr>
+  
+      <tr><th>販売価格</th>
+      <td>{{ product.price }}</td></tr>
+  
+      <tr><th>カテゴリ</th>
+      <td>    ---</td></tr>
+  
+      <tr><th>ギフト対応有無</th>
+      <td>    ---</td></tr>
+  
+      <tr><th>作成日時</th>
+      <td>{{ product.created_at }}</td></tr>
+  
+      <tr><th>更新日時</th>
+      <td>{{ product.updated_at }}</td></tr>
+
+
+      <p>商品を削除します。よろしいですか？</p>
+      <p><input type="submit" value="削除" /></p>
+      </td></tr>
+      </table></td></tr>
+    </table>
+  </div>
+    <p><a href="{% url 'pina-product-list' %}">商品一覧に戻る</a></p>
   </body>
 </html>
