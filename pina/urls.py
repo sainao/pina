@@ -23,7 +23,7 @@ urlpatterns = patterns(
         'pina.views.product_delete_check',
         name='pina-product-delete-check'),
 
-    url(r'^products/(?P<product_id>\d+)/delete$',
+    url(r'^products/delete$',
         'pina.views.product_delete',
         name='pina-product-delete'),
 
