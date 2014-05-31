@@ -124,7 +124,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'raven.contrib.django.raven_compat',
+    # 'raven.contrib.django.raven_compat',
     'pina',
 )
 
