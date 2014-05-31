@@ -124,6 +124,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'raven.contrib.django.raven_compat',
     'pina',
 )
 
@@ -156,4 +157,8 @@ LOGGING = {
             'propagate': True,
         },
     }
+}
+
+RAVEN_CONFIG = {
+    'dsn': 'http://9c9eda2ea3f548169ee5ff41f76aeedd:e35bc75ef73a4b4287c515e5bff137c8@127.0.0.1:9000/2',
 }
