@@ -20,6 +20,10 @@ def product_list(request):
             'price_gte_3000': price_gte_3000})
 
 
+def inquiry(request):
+    return render(request, 'pina/inquiry.html')
+
+
 def product_detail(request, product_id):
     try:
         product = Product.objects.get(pk=product_id)

@@ -13,6 +13,9 @@ urlpatterns = patterns(
     url(r'^products$', 'pina.views.product_list',
         name='pina-product-list'),
 
+    url(r'^inquiry$', 'pina.views.inquiry',
+        name='pina-inquiry'),
+
     url(r'^products/(?P<product_id>\d+)/$', 'pina.views.product_detail',
         name='pina-product-detail'),
 
